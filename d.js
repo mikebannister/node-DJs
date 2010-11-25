@@ -188,11 +188,13 @@ function startTest(tests) {
         } else {
           // We'll buffer the output, to minimize noise
           exec("node "+test, function(err, stdout, stderr) {
-            sys.puts("=============== Tests ===============");
-              _print("------------ Exec Errors ------------", err);
-              _print("--------------- stdout --------------", stdout);
-              _print("--------------- stderr --------------", stderr);
-            sys.puts("============= Tests End =============");
+            sys.puts("-------------------------------------------------------------");
+            sys.puts("Running test: " + test);
+            sys.puts("-------------------------------------------------------------");
+              _print("Errors", err);
+              _print("Output", stdout);
+              _print("Errors", stderr);
+            sys.puts("-------------------------------------------------------------");
             
             function _print(header, data) {
               if(data) {
